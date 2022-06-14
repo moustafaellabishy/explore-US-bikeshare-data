@@ -160,7 +160,6 @@ def load_data(city, month, day):
 
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
-
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
     all_months = ['january', 'february', 'march', 'april', 'may', 'june']
@@ -240,19 +239,19 @@ def user_stats(df):
     start_time = time.time()
     
     print('Here are User types and count of each:\n',df['User Type'].dropna().value_counts())
-    """prints counts of user types."""
+    """prints counts of user types"""
     
     if len(df.columns) == 13 :
         """checking number of colums to decide whether it will print gender and birth year info or not, as I have found using column attribute that newyork and chicago has 13 columns while washington has only 11 columns."""
         
         print('\nOur Users gender count was:\n',df['Gender'].dropna().value_counts())
-        """print counts of gender."""
+        """print counts of gender"""
         print('\nOur oldest user was born in: ', int(df['Birth Year'].dropna().min()))
         print('\nOur youngest user was born in: ',int(df['Birth Year'].dropna().max()))
         
 
         print('\nMost common birth year of our users is: ',int(df['Birth Year'].dropna().mode()[0]),' And the count of users who were born in that year is:',df['Birth Year'].value_counts()[df['Birth Year'].mode()[0]])
-        """Displays most common year and its count by getting mode index and value count of mode."""
+        """Displays most common year and its count by getting mode index and value count of mode"""
     else :
         print('\nData from Washington city does not have Gender or Birth year info!')
     print("\nThis took %s seconds." % (time.time() - start_time))
